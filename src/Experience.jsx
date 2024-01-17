@@ -47,8 +47,13 @@ export default function Experience() {
                 <meshStandardMaterial />
             </mesh>
 
-            <directionalLight castShadow color={currentTime.getSeconds() % 2 === 0 ? 'white' : 'red'}/>
-            <pointLight castShadow color={'red'}/>
+            <directionalLight 
+                castShadow 
+                color={currentTime.getSeconds() % 2 === 0 ? 'white' : 'red'}
+                position={currentTime.getSeconds() <= 30 ? [3,3,3] : [-3,3,-3]}
+                intensity={.5}
+            />
+            <pointLight castShadow color={'white'} intensity={4} position={[1,5,1]}/>
             <spotLight castShadow color={'blue'}/>
             <ambientLight color={currentTime.getHours() >= 17 ? 'blue' : 'yellow'}/>
         </>    
